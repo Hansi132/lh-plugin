@@ -22,7 +22,6 @@ function function_deleteform() {
 			"UPDATE wp_order_system SET is_done=1 WHERE order_key={$_POST['submit']}"
 		)
 	);
-	wp_mail("hanskristianom@gmail.com", "Welcome to the jungle", "I love you motherfucker");
 }
 
 
