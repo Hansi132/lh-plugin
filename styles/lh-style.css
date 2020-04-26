@@ -1,0 +1,39 @@
+.lh_table {
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #d22c58;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: Consolas;
+    font-size: 18px;
+}
+
+.lh_td {
+    padding: 0.8rem;
+    border: 3px solid #d22c58;
+}
+
+.lh_button {
+    background: white;
+    border: 1px solid black;
+}
+
+.lh_button:hover {
+    background: #d22c58;
+}
+
+.lh_a:link {
+    text-decoration: none;
+    color: blue;
+}
+
+.lh_a:visited {
+    text-decoration: none;
+}
+
+.lh_a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: #d22c58;
+}
