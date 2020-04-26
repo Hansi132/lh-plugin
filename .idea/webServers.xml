@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4464fb6f-28f5-4660-88c1-9d5f0408f32f" name="Wordpress" url="http://localhost/wordpress/">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\wordpress\wp-content\plugins\lh-plugin" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
