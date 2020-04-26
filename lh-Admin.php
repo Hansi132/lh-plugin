@@ -21,7 +21,7 @@ function my_plugin_options() {
 
 	global $wpdb;
 
-	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE is_done='0'";
+	$sql = "SELECT * FROM {$wpdb->base_prefix}order_system WHERE is_done='0' ORDER BY created_at";
 
 	$results = $wpdb->get_results($sql);
 
