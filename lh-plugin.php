@@ -91,7 +91,7 @@ require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/Hansi132/lh-plugin',
 	__FILE__, //Full path to the main plugin file or functions.php.
-	'Lises Plugin',
+	'Lises Plugin'
 	//This is useless
 );
 
