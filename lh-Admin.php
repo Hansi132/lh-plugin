@@ -30,7 +30,7 @@ function my_plugin_options() {
 
 	?>
 
-<img class="lh_logo" src="img/Liseslogo.png" alt="LisesLogo">
+<img class="lh_logo" src="img/Liseslogo.png" alt="">
 
 
 <form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >
