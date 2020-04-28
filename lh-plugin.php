@@ -4,11 +4,12 @@
 Plugin Name: Lh Plugin
 Plugin URI: https://github.com/Hansi132/USN_Fag
 Description: Lises Hemmelighet custom plugin.
-Version: 3.7
+Version: 3.8
 Author: Hans Kristian Odberg Markeseth
 Author URI: https://github.com/Hansi132/
 License: A "Slug" license name e.g. GPL2
 */
+
 
 /* Creating database */
 include_once("lh_dbconnection.php");
@@ -19,12 +20,9 @@ date_default_timezone_set("Europe/Oslo");
 /* Start Removeform handler */
 function function_deleteform() {
 	global $wpdb;
+	$date = date('Y-m-d H:i:s');
 	wp_redirect(wp_get_referer());
-	$wpdb->query(
-		$wpdb->prepare(
-			"UPDATE wp_order_system SET is_done=1 WHERE order_key={$_POST['submit']}"
-		)
-	);
+	$wpdb->update('wp_order_system', array('closed_at' => date("Y-m-d H:i:s"), 'is_done' =>1), array('order_key'=>$_POST['submit']));
 }
 
 add_action('admin_post_nopriv_deleteform', 'function_deleteform');

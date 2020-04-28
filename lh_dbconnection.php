@@ -10,6 +10,7 @@ $sql = "CREATE TABLE {$wpdb->base_prefix}order_system (
     phone int(9) not null,
     what text not null,
     created_at datetime NOT NULL,
+    closed_at datetime,
     is_done boolean default 0 NOT NULL,
     PRIMARY KEY (order_key)
 ) $charset_collate;";
