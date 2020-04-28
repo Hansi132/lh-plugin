@@ -1,9 +1,7 @@
 <?php
-
 /* --------------- */
 /*   Form Design   */
 /* --------------- */
-
 ?>
 
 <form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >

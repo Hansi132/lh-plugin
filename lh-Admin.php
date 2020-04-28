@@ -28,43 +28,46 @@ function my_plugin_options() {
 	 $break = "%0D%0A";
 
 
+
+
 	?>
+	<img class="lh_logo" src="http://localhost/wordpress/wp-content/plugins/lh-plugin/img/Liseslogo.png" alt="1" width="250" height="250">
+	<h3 class="lh_h3">Kontrollpanel for klikk og hent</h3>
 
-<img class="lh_logo" src="img/Liseslogo.png" alt="">
+<section class="lh_showcase">
+	<form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >
+		<table class="lh_table">
+			<tr class="lh_tr_header">
+				<td class="lh_td">Fullfør</td>
+				<td class="lh_td">Navn</td>
+				<td class="lh_td">Epost</td>
+				<td class="lh_td">Telefon</td>
+				<td class="lh_td">Hva de ønsker</td>
+				<td class="lh_td">Ordre Dato</td>
+			</tr>
+		<?php $i = 1; foreach ($results as $result) {
+			$i++;?>
+			<tr class="lh_tr">
+				<!-- We need a radio button with the class of result->order_id -->
+				<td class="lh_td"><button class="lh_button" type="submit" id="submit" name="submit" value="<?php echo $result->order_key ?>">Merk ferdig</button></td>
+				<td class="lh_td"><?php echo $result->name; ?></td>
+				<td class="lh_td"><a class="lh_a" href="mailto:<?php echo $result->email;?>?
+						subject=Din ordre fra Liseshemmelighet er klar.
+						&body=<?php echo "Hei! $result->name {$break}Din ordre for $result->what er nå klar for å bli hentet. {$break}{$break}{$break}Mvh {$break}Liseshemmelighet {$break} {$break}Adresse {$break}Storgata 21 {$break}3181 Horten {$break} {$break}Åpningstider {$break}Mandag–fredag: 10:00–17:00 {$break}Lørdag: 10:00–15:00"  ?>">
+						<?php echo $result->email;?></a>
+				</td>
+				<td class="lh_td"><?php echo $result->phone; ?></td>
+				<td class="lh_td"><?php echo wordwrap($result->what, 60, "<br>") ?></td>
+				<td class="lh_td"><?php echo $result->created_at; ?></td>
 
+			</tr>
 
-<form class="form" method="POST" name="form" action ="<?php echo admin_url('admin-post.php'); ?>" >
-	<table class="lh_table">
-		<tr>
-			<td class="lh_td">Fullfør</td>
-			<td class="lh_td">Navn</td>
-			<td class="lh_td">Epost</td>
-			<td class="lh_td">Telefon</td>
-			<td class="lh_td">Hva</td>
-			<td class="lh_td">Ordre Laget</td>
-		</tr>
-	<?php foreach ($results as $result) { ?>
-		<tr>
-			<!-- We need a radio button with the class of result->order_id -->
-			<td class="lh_td"><button class="lh_button" type="submit" id="submit" name="submit" value="<?php echo $result->order_key ?>">Merk ferdig</button></td>
-			<td class="lh_td"><?php echo $result->name; ?></td>
-			<td class="lh_td"><a class="lh_a" href="mailto:<?php echo $result->email;?>?
-					subject=Din ordre fra Liseshemmelighet er klar.
-					&body=<?php echo "Hei! $result->name {$break}Din ordre for $result->what er nå klar for å bli hentet. {$break}{$break}{$break}Mvh {$break}Liseshemmelighet {$break} {$break}Adresse {$break}Storgata 21 {$break}3181 Horten {$break} {$break}Åpningstider {$break}Mandag–fredag: 10:00–17:00 {$break}Lørdag: 10:00–15:00"  ?>">
-					<?php echo $result->email;?></a>
-			</td>
-			<td class="lh_td"><?php echo $result->phone; ?></td>
-			<td class="lh_td"><?php echo $result->what; ?></td>
-			<td class="lh_td"><?php echo $result->created_at; ?></td>
-
-		</tr>
-		<br><br><br>
-	<?php } ?>
-	</table>
-	<input type='hidden' name='action' value='deleteform'/>
-	<?php wp_nonce_field( 'submitform', 'deleteform_nonce' ); ?>
-</form>
-
+		<?php } ?>
+		</table>
+		<input type='hidden' name='action' value='deleteform'/>
+		<?php wp_nonce_field( 'submitform', 'deleteform_nonce' ); ?>
+	</form>
+</section>
 
 <?php
 }

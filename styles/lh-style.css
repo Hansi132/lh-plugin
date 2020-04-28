@@ -2,7 +2,7 @@
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
-    border: 3px solid #d22c58;
+    border: 2px solid #d22c58;
     border-collapse: collapse;
     text-align: center;
     font-family: Consolas;
@@ -11,7 +11,18 @@
 
 .lh_td {
     padding: 0.8rem;
-    border: 3px solid #d22c58;
+    border: 2px solid #d22c58;
+}
+
+
+.lh_tr_header td {
+    border-color: #d22c58;
+    font-weight: bold;
+}
+
+.lh_tr:hover {
+    background: #afafaf;
+
 }
 
 .lh_button {
@@ -36,4 +47,15 @@
     text-decoration: none;
     font-weight: bold;
     color: #d22c58;
+}
+
+.lh_showcase {
+    padding: 1rem;
+    position: center;
+}
+
+.lh_h3 {
+    font-size: 2.5rem;
+    margin: 1rem;
+    text-align: center;
 }

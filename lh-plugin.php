@@ -10,10 +10,13 @@ Author URI: https://github.com/Hansi132/
 License: A "Slug" license name e.g. GPL2
 */
 
+/* Creating database */
 include_once("lh_dbconnection.php");
 
+/* Setting the timezone */
 date_default_timezone_set("Europe/Oslo");
 
+/* Start Removeform handler */
 function function_deleteform() {
 	global $wpdb;
 	wp_redirect(wp_get_referer());
@@ -24,11 +27,10 @@ function function_deleteform() {
 	);
 }
 
-
-
 add_action('admin_post_nopriv_deleteform', 'function_deleteform');
 add_action('admin_post_deleteform', 'function_deleteform');
 
+/* Start Submitform handler */
 function function_submitform() {
 
 	global $wpdb;
@@ -56,26 +58,20 @@ function function_submitform() {
 add_action('admin_post_nopriv_submitform', 'function_submitform');
 add_action('admin_post_submitform', 'function_submitform');
 
-
 /* Database Creation */
 require_once("lh_dbconnection.php");
 
 /* Admin panel */
 require_once ("lh-Admin.php");
 
-
 /* Shortcodes */
-
 function wp_shortcode_create() {
-
 	return include_once("lh-Form.php");
-
 }
-
 add_shortcode("CreateForm", "wp_shortcode_create");
 
+/* Stylesheets */
 add_action("admin_init", "lh_admin_init");
-
 function lh_admin_init() {
 	wp_register_style("lh-style", "/wp-content/plugins/lh-plugin/styles/lh-style.css");
 
@@ -84,7 +80,6 @@ function lh_admin_init() {
 	function lh_admin_style() {
 		wp_enqueue_style("lh-style");
 	}
-
 }
 
 require 'plugin-update-checker/plugin-update-checker.php';
