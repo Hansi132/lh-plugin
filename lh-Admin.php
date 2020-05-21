@@ -5,10 +5,7 @@ if (!function_exists("add_action")) {
 	exit;
 }
 
-
-
 add_action("admin_menu", "my_plugin_menu");
-
 
 function my_plugin_menu() {
 	add_menu_page("Lises Hemmelighet", "Lises Hemmelighet", "manage_options", "lh_admin_page", "my_plugin_options", "dashicons-cart");
@@ -29,7 +26,7 @@ function my_plugin_options() {
 	 $break = "%0D%0A";
 
 	?>
-	<img class="lh_logo" src="http://localhost/wordpress/wp-content/plugins/lh-plugin/img/Liseslogo.png" alt="1" width="250" height="250">
+	<img class="lh_logo" src="liseshemmelighet.no/wp-content/plugins/lh-plugin/img/Liseslogo.png" alt="1" width="250" height="250">
 	<h3 class="lh_h3">Kontrollpanel for klikk og hent</h3>
 
 <section class="lh_showcase">
@@ -83,7 +80,7 @@ function lh_archive_page() {
 	$break = "%0D%0A";
 
 ?>
-<img class="lh_logo" src="http://localhost/wordpress/wp-content/plugins/lh-plugin/img/Liseslogo.png" alt="1" width="250" height="250">
+<img class="lh_logo" src="liseshemmelighet.no/wp-content/plugins/lh-plugin/img/Liseslogo.png" alt="1" width="250" height="250">
 <h3 class="lh_h3">Arkiv for klikk og hent</h3>
 
 <section class="lh_showcase">
