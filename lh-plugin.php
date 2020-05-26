@@ -4,7 +4,7 @@
 Plugin Name: Lises Hemmelighet Plugin
 Plugin URI: https://github.com/Hansi132/USN_Fag
 Description: Lises Hemmelighet custom plugin.
-Version: 4.2
+Version: 4.3
 Author: Hans Kristian Odberg Markeseth
 Author URI: https://github.com/Hansi132/
 License: A "Slug" license name e.g. GPL2
@@ -22,7 +22,7 @@ function function_deleteform() {
 	global $wpdb;
 	$date = date('Y-m-d H:i:s');
 	wp_redirect(wp_get_referer());
-	$wpdb->update("{$wpdb->base_prefix}_order_system", array('closed_at' => date("Y-m-d H:i:s"), 'is_done' =>1), array('order_key'=>$_POST['submit']));
+	$wpdb->update("wp_EK_order_system", array('closed_at' => date("Y-m-d H:i:s"), 'is_done' =>1), array('order_key'=>$_POST['submit']));
 }
 
 add_action('admin_post_nopriv_deleteform', 'function_deleteform');
@@ -34,7 +34,7 @@ function function_submitform() {
 	global $wpdb;
 	wp_redirect(wp_get_referer());
 	$wpdb->insert(
-		"{$wpdb->base_prefix}_order_system",
+		"wp_EK_order_system",
 		array(
 			'name' => $_POST["lh_name"],
 			'email' => $_POST["lh_email"],
