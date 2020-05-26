@@ -34,7 +34,7 @@ function function_submitform() {
 	global $wpdb;
 	wp_redirect(wp_get_referer());
 	$wpdb->insert(
-		'wp_order_system',
+		$wpdb->base_prefix . '_order_system',
 		array(
 			'name' => $_POST["lh_name"],
 			'email' => $_POST["lh_email"],
